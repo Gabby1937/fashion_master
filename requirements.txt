@@ -1,0 +1,13 @@
+flask
+flask_login
+flask-sqlalchemy
+flask_session
+cs50
+psycopg2
+flask_cors
+flask_sqlalchemy
+sqlalchemy
+wtforms
+flask_wtf
+flask_migrate
+flask_moment

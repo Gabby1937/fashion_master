@@ -1,0 +1,1 @@
+Thank you for you assistance, the above codes delete from my cart, but the items still remains on my database, how do I make it delete from my cart database table

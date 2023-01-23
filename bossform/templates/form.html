@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Application</title>
+</head>
+<body>
+    <form action={{ url_for('form')}} method="POST">
+        Surname: <input type="text" name="surname">
+        Firstname: <input type="text" name="firstname">
+        Middlename: <input type="text" name="Middlename">
+        Gender: <input type="text" name="gender">
+        Email: <input type="text" name="email"><br>
+        Password: <input type="password" name="password">
+        Phonenumber: <input type="text" name="phonenumber">
+        Address: <input type="text" name="address">
+        <!--<a href={{ url_for("details")}}><input  type="submit"><a>-->
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

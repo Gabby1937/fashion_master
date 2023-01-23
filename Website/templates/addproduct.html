@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Product</title>
+</head>
+<body>
+    <form action="{{url_for('addproduct')}}" method="post">
+        <div>
+            <input name="name" type="name" placeholder="Product name">
+        </div>
+        <div>
+            <input name="price" type="number" placeholder="0.00" required min="0" value="0" step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$">
+        </div>
+        <div>
+            <input name="percent" type="number" placeholder="Discount percentage">
+        </div>
+        <div>
+            <input name="image1" type="file" placeholder="First image">
+        </div>
+        <div>
+            <input name="image2" type="file" placeholder="Second image">
+        </div>
+        <div>
+            <input name="image3" type="file" placeholder="Third image">
+        </div>
+        <div>
+            <input name="image4" type="file" placeholder="Forth image">
+        </div>
+        <div>
+            <input name="image5" type="file" placeholder="Fifth image">
+        </div>
+        <div>
+            <input name="description" type="text" placeholder="Description">
+        </div>
+        <div>
+            <input name="specification" type="text" placeholder="Specification">
+        </div>
+        <div>
+            <input name="ratings" type="number" placeholder="Ratings">
+        </div>
+        <div>
+            <input name="reviews" type="text" placeholder="Reviews">
+        </div>
+        <div>
+            <input name="qty" type="number" placeholder="Quantity">
+        </div>
+        <div>
+            <input name="tags" type="text" placeholder="Tags">
+        </div>
+        <div>
+            <input name="video_link" type="file" placeholder="Video file">
+        </div>
+        <div>
+            <input name="colors" type="color" placeholder="Colors">
+        </div>
+        <div>
+            <input name="size" type="text" placeholder="Size">
+        </div>
+        <div>
+            <input name="category_id" type="number" placeholder="Category ID">
+        </div>
+        <div>
+            <input name="brand_id" type="number" placeholder="Brand ID">
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

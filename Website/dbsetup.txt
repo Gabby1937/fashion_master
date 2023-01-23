@@ -1,0 +1,167 @@
+DROP TABLE users CASCADE;
+    CREATE TABLE users(
+        userId SERIAL PRIMARY KEY,
+        firstName VARCHAR(255) NOT NULL,
+        lastName VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL,
+	      phonenumber VARCHAR(255) NOT NULL,
+        address VARCHAR(255) NOT NULL,
+        city VARCHAR(255) NOT NULL,
+        state VARCHAR(255) NOT NULL,
+        country VARCHAR(255) NOT NULL,
+        postalcode VARCHAR(255)
+        );
+DROP TABLE messages;
+    CREATE TABLE messages (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    content TEXT NOT NULL
+    );
+
+name, price, quantity, size, colors, image_link1, category_id, brand_id, product_id
+CREATE TABLE carts(
+    id SERIAL PRIMARY KEY,
+    name,
+    price,
+    quantity,
+    size,
+    colors,
+    image_link1,
+    category_id, 
+    brand_id, 
+    product_id
+);
+
+drop table products CASCADE;
+
+CREATE TABLE products(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price float NOT NULL,
+    percent INTEGER,
+    image_link1 VARCHAR(255),
+    image_link2 VARCHAR(255),
+    image_link3 VARCHAR(255),
+    image_link4 VARCHAR(255),
+    image_link5 VARCHAR(255),
+    description VARCHAR(500) NOT NULL,
+    specification VARCHAR(300) NOT NULL,
+    ratings INTEGER NOT NULL,
+    reviews VARCHAR(255) NOT NULL,
+    category_id INT REFERENCES categories(categoryid),
+    brand VARCHAR(255) NOT NULL,
+    qty INTEGER NOT NULL,
+    tags VARCHAR(255) NOT NULL,
+    carts VARCHAR(255),
+    video_link VARCHAR(255),
+    colors VARCHAR(255) NOT NULL,
+    size VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE productimg(
+    productId SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    image1 VARCHAR(255),
+    image2 VARCHAR(255),
+    image3 VARCHAR(255),
+    image4 VARCHAR(255),
+    image5 VARCHAR(255),
+);
+
+INSERT INTO category (name) values 
+    ('MEN'),
+    ('WOMEN'),
+    ('KIDS'),
+    ('CLOTHES'),
+    ('SHOES'),
+    ('PRODUCTS'),
+    ('BAGS'),
+    ('HATS'),
+    ('FASHION'),
+    ('ACCESSORIES')
+;
+
+INSERT INTO brand (name) values 
+    ('Louis Vuitton'),
+    ('Chanel'),
+    ('Hermes'),
+    ('Gucci'),
+    ('Versace'),
+    ('Fendi'),
+    ('Palm Angels'),
+    ('Balenciaga'),
+    ('Nike'),
+    ('Prada'),
+    ('Valentino'),
+    ('Saint Laurent'),
+    ('Moncler'),
+    ('Adidas'),
+    ('ZARA'),
+    ('H&M'),
+    ('Cartier')
+;
+
+INSERT INTO products values ('Bellaton Crop Top', 367.567, 20,
+ 'bbs/sbs/nfh.jpg', 50,
+ 'sf/dfb/sd/sg', [red, yellow, blue, green],
+  'dbzdfbdbdzfbdbdzbdzb', 'bzdfbfbdgbFBdfbvb',
+   5, 'dgbadadbfadbfadgbadbab', 'Men', 'Gucci',
+    ['fbdfb', 'adfvsfv', 'sdvs'], [XXL, XL, L, S, M], );
+
+INSERT INTO products values (1 ,'xgbd vdg gsrbfs', 367.567, 20,
+ 'bbs/sbs/nfh.jpg', 50,
+ 'sf/dfb/sd/sg', 'yellow',
+  'dbzdfbdbdzfbdbdzbdzb', 'bzdfbfbdgbFBdfbvb',
+   5, 'dgbadadbfadbfadgbadbab', 'Men', 'Gucci',
+    'adfvsfv', 'XL');
+
+CREATE TABLE categories(
+    categoryid SERIAL PRIMARY KEY,
+    type VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE karts(
+     kartId SERIAL PRIMARY KEY,
+     userId INTEGER REFERENCES users (userId),
+     productId INTEGER REFERENCES products (productId)
+);
+ALTER TABLE karts
+ALTER COLUMN kartid SERIAL TYPE PRIMARY KEY;
+ALTER TABLE karts
+ALTER COLUMN kartid SERIAL PRIMARY;
+
+CREATE TABLE message(
+    userId SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    content VARCHAR NOT NULL
+    );
+
+CREATE TABLE bill_product (
+  bill_id    int REFERENCES bill (bill_id) ON UPDATE CASCADE ON DELETE CASCADE
+, product_id int REFERENCES product (product_id) ON UPDATE CASCADE
+, amount     numeric NOT NULL DEFAULT 1
+, CONSTRAINT bill_product_pkey PRIMARY KEY (bill_id, product_id)  -- explicit pk
+);
+
+
+
+
+###############################################################################
+CREATE TABLE author (
+  id SERIAL PRIMARY KEY,
+  name TEXT
+)
+
+CREATE TABLE article (
+  id SERIAL PRIMARY KEY,
+  author_id INT NOT NULL,
+  title TEXT NOT NULL,
+  content TEXT NOT NULL,
+  CONSTRAINT fk_author FOREIGN KEY(author_id) REFERENCES author(id)
+)
+
+# Carts details can be filter_by userId
